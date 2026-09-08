@@ -18,10 +18,13 @@ export function MobileNav() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
   // Close on route change
-  useEffect(() => {
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   // Prevent body scroll when open
   useEffect(() => {
@@ -58,7 +61,7 @@ export function MobileNav() {
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="md:hidden flex items-center justify-center p-2 -mr-2 rounded-md text-foreground hover:bg-secondary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="md:hidden flex items-center justify-center p-3 -mr-2 rounded-md text-foreground hover:bg-secondary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {open ? <X size={20} strokeWidth={1.75} /> : <Menu size={20} strokeWidth={1.75} />}
       </button>
@@ -81,9 +84,10 @@ export function MobileNav() {
         className={cn(
           "fixed top-0 right-0 z-50 h-full w-72 bg-background border-l border-border",
           "flex flex-col pt-16 px-6 pb-8",
-          "transform transition-transform duration-250 ease-in-out",
+          "transform transition-transform duration-200 ease-in-out",
           open ? "translate-x-0" : "translate-x-full"
         )}
+        aria-hidden={!open}
       >
         {/* Close button inside drawer */}
         <button

@@ -1,5 +1,6 @@
 import { credibilitySignals, education, currentJourney } from "@/content";
 import { Container } from "@/components/layout/Container";
+import { StaggerContainer, StaggerItem } from "@/components/motion/FadeIn";
 
 export function CredibilitySection() {
   return (
@@ -8,8 +9,10 @@ export function CredibilitySection() {
       className="section-rule py-12 sm:py-16"
     >
       <Container>
+        <StaggerContainer>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education + journey */}
+          <StaggerItem>
           <div>
             <p className="meta-label mb-1">Background</p>
             <h2
@@ -50,13 +53,15 @@ export function CredibilitySection() {
               ))}
             </div>
           </div>
+          </StaggerItem>
 
           {/* Credibility signals */}
+          <StaggerItem>
           <div>
             <p className="meta-label mb-1">Signals</p>
-            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight mb-6">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight mb-6">
               Credibility
-            </h3>
+            </h2>
 
             <ul className="space-y-4" role="list">
               {credibilitySignals.map((signal, i) => (
@@ -68,7 +73,9 @@ export function CredibilitySection() {
               ))}
             </ul>
           </div>
+          </StaggerItem>
         </div>
+        </StaggerContainer>
       </Container>
     </section>
   );

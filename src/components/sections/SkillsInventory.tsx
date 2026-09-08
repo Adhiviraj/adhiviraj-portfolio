@@ -1,5 +1,6 @@
 import { skillGroups } from "@/content";
 import { Container } from "@/components/layout/Container";
+import { StaggerContainer, StaggerItem } from "@/components/motion/FadeIn";
 
 export function SkillsInventory() {
   return (
@@ -8,6 +9,8 @@ export function SkillsInventory() {
       className="section-rule py-12 sm:py-16"
     >
       <Container>
+        <StaggerContainer>
+        <StaggerItem>
         <p className="meta-label mb-1">Capabilities</p>
         <h2
           id="skills-heading"
@@ -15,10 +18,12 @@ export function SkillsInventory() {
         >
           Technical range
         </h2>
+        </StaggerItem>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillGroups.map((group) => (
-            <div key={group.title}>
+            <StaggerItem key={group.title}>
+            <div>
               <h3 className="text-sm font-semibold text-foreground mb-3 pb-2 border-b border-border">
                 {group.title}
               </h3>
@@ -30,8 +35,10 @@ export function SkillsInventory() {
                 ))}
               </ul>
             </div>
+            </StaggerItem>
           ))}
         </div>
+        </StaggerContainer>
       </Container>
     </section>
   );

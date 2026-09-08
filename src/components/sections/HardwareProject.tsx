@@ -3,6 +3,7 @@ import { ArrowRight, Cpu } from "lucide-react";
 import { projects } from "@/content";
 import { ProjectStatusBadge } from "@/components/projects/ProjectStatusBadge";
 import { Container } from "@/components/layout/Container";
+import { FadeIn } from "@/components/motion/FadeIn";
 
 export function HardwareProject() {
   const smartLibrary = projects.find((p) => p.slug === "smart-library-system");
@@ -14,6 +15,7 @@ export function HardwareProject() {
       className="section-rule py-12 sm:py-16"
     >
       <Container>
+        <FadeIn>
         <div className="flex flex-col sm:flex-row sm:items-start gap-6">
           {/* Icon column */}
           <div className="flex-shrink-0">
@@ -62,6 +64,7 @@ export function HardwareProject() {
             </Link>
           </div>
         </div>
+        </FadeIn>
       </Container>
     </section>
   );

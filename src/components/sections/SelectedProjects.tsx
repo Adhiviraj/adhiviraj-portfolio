@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { projects } from "@/content";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Container } from "@/components/layout/Container";
+import { StaggerContainer, StaggerItem } from "@/components/motion/FadeIn";
 
 export function SelectedProjects() {
   // Priority 1–3 on homepage; priority 4 (Smart Library) shown separately
@@ -16,6 +17,8 @@ export function SelectedProjects() {
       className="section-rule py-16 sm:py-20"
     >
       <Container>
+        <StaggerContainer>
+        <StaggerItem>
         <div className="flex items-baseline justify-between mb-8">
           <div>
             <p className="meta-label mb-1">Work</p>
@@ -34,19 +37,25 @@ export function SelectedProjects() {
             All projects <ArrowRight size={12} className="inline" aria-hidden="true" />
           </Link>
         </div>
+        </StaggerItem>
 
+        <StaggerItem>
         {/* Lead project — priority 1 */}
         <ProjectCard
           project={selectedProjects[0]}
           featured
         />
+        </StaggerItem>
 
+        <StaggerItem>
         {/* Two supporting projects — priority 2 and 3 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
           {selectedProjects.slice(1).map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
+        </StaggerItem>
+        </StaggerContainer>
       </Container>
     </section>
   );

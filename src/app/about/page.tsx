@@ -1,8 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Container } from "@/components/layout/Container";
-import { profile, education, credibilitySignals, currentJourney, socialLinks } from "@/content";
+import { profile, education, currentJourney, socialLinks } from "@/content";
 
 export const metadata: Metadata = {
   title: "About",
