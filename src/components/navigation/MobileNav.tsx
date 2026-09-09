@@ -69,44 +69,38 @@ export function MobileNav() {
         {open ? <X size={20} strokeWidth={1.75} /> : <Menu size={20} strokeWidth={1.75} />}
       </button>
 
-      {/* Full-screen overlay — only mounted when open to prevent overflow */}
+      {/* Full-screen overlay — only mounted when open */}
       {open && (
         <div
-          className="md:hidden fixed inset-0 z-40"
-          aria-hidden="true"
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          className="md:hidden fixed inset-0 z-50 bg-background flex flex-col"
+          style={{ width: "100vw", height: "100dvh" }}
         >
-          {/* Backdrop — covers full viewport, visually hides page */}
-          <div
-            className="absolute inset-0 bg-background/90 backdrop-blur-sm"
-            onClick={() => {
-              setOpen(false);
-              menuButtonRef.current?.focus();
-            }}
-          />
+          {/* Header row: wordmark placeholder + close button */}
+          <div className="flex items-center justify-between h-14 px-4 border-b border-border shrink-0">
+            {/* Visually mirrors the header wordmark so the top row feels consistent */}
+            <span className="text-sm font-semibold tracking-tight text-foreground select-none">
+              Adhiviraj Pal
+            </span>
 
-          {/* Drawer panel — full width on mobile */}
-          <div
-            id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation menu"
-            className={cn(
-              "absolute top-0 right-0 h-full w-full max-w-xs bg-background border-l border-border",
-              "flex flex-col pt-16 px-6 pb-8"
-            )}
-          >
-            {/* Close button inside drawer */}
+            {/* Close button */}
             <button
               aria-label="Close navigation menu"
               onClick={() => {
                 setOpen(false);
                 menuButtonRef.current?.focus();
               }}
-              className="absolute top-4 right-4 flex items-center justify-center p-2 rounded-md text-foreground hover:bg-secondary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="flex items-center justify-center p-3 -mr-2 rounded-md text-foreground hover:bg-secondary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <X size={20} strokeWidth={1.75} />
             </button>
+          </div>
 
+          {/* Navigation content */}
+          <div className="flex flex-col flex-1 px-6 pt-8 pb-8 overflow-y-auto">
             <nav aria-label="Mobile navigation">
               <ul className="space-y-1">
                 {navLinks.map((link, i) => (
@@ -115,7 +109,7 @@ export function MobileNav() {
                       ref={i === 0 ? firstLinkRef : undefined}
                       href={link.href}
                       className={cn(
-                        "block py-3 text-base font-medium border-b border-border",
+                        "block py-4 text-lg font-medium border-b border-border",
                         "transition-colors duration-150",
                         pathname === link.href
                           ? "text-foreground"
@@ -130,7 +124,7 @@ export function MobileNav() {
             </nav>
 
             {/* "Get in touch" CTA — navigates to /contact */}
-            <div className="mt-auto">
+            <div className="mt-auto pt-8">
               <Link
                 href="/contact"
                 className="block w-full text-center py-3 px-4 text-sm font-medium border border-foreground rounded-md text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
