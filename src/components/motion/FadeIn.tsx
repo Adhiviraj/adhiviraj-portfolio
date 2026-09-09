@@ -7,9 +7,37 @@ interface FadeInProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  /**
+   * When true, the animation plays immediately on mount (good for above-the-fold
+   * content like the hero). When false (default), it plays when the element
+   * enters the viewport.
+   */
+  immediate?: boolean;
 }
 
-export function FadeIn({ children, delay = 0, className }: FadeInProps) {
+export function FadeIn({
+  children,
+  delay = 0,
+  className,
+  immediate = false,
+}: FadeInProps) {
+  if (immediate) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          delay,
+          ease: [0.21, 0.47, 0.32, 0.98],
+        }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}

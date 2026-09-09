@@ -98,7 +98,12 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    /* Prevent horizontal scroll from any element that overshoots the viewport.
+       overflow-x: clip is used (not hidden) to avoid creating a scroll container
+       that would break position: sticky on the header. */
+    overflow-x: clip;
   }
+
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {

@@ -31,9 +31,11 @@ export default function ContactPage() {
 
               <div className="space-y-4 mb-10">
                 <a
-                  href="mailto:paladhiviraj@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=paladhiviraj@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 border border-border rounded-md text-foreground hover:border-foreground transition-colors duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  aria-label="Send an email to paladhiviraj@gmail.com"
+                  aria-label="Email Adhiviraj via Gmail (opens in new tab)"
                 >
                   <Mail size={16} strokeWidth={1.75} className="text-muted-foreground group-hover:text-foreground transition-colors" aria-hidden="true" />
                   <div>
@@ -43,7 +45,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href="https://github.com/Adhivirajleetcode"
+                  href="https://github.com/Adhiviraj"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 border border-border rounded-md text-foreground hover:border-foreground transition-colors duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -52,7 +54,7 @@ export default function ContactPage() {
                   <GitBranch size={16} strokeWidth={1.75} className="text-muted-foreground group-hover:text-foreground transition-colors" aria-hidden="true" />
                   <div>
                     <p className="text-xs text-muted-foreground meta-label mb-0.5">GitHub</p>
-                    <p className="text-sm font-medium">github.com/Adhivirajleetcode</p>
+                    <p className="text-sm font-medium">github.com/Adhiviraj</p>
                   </div>
                 </a>
               </div>

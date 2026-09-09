@@ -1,4 +1,5 @@
-import { Mail, GitBranch } from "lucide-react";
+import Link from "next/link";
+import { GitBranch } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { FadeIn } from "@/components/motion/FadeIn";
 
@@ -25,17 +26,15 @@ export function ContactCTA() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a
-              href="mailto:paladhiviraj@gmail.com"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-foreground text-background rounded-md hover:bg-foreground/85 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label="Send an email to Adhiviraj Pal"
             >
-              <Mail size={14} strokeWidth={1.75} aria-hidden="true" />
-              paladhiviraj@gmail.com
-            </a>
+              Get in touch
+            </Link>
 
             <a
-              href="https://github.com/Adhivirajleetcode"
+              href="https://github.com/Adhiviraj"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border border-border text-foreground rounded-md hover:border-foreground transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

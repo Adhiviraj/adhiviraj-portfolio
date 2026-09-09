@@ -11,7 +11,7 @@ export function Hero() {
       className="pt-16 sm:pt-24 pb-16 sm:pb-20"
     >
       <Container>
-        <FadeIn>
+        <FadeIn immediate>
         {/* Student context label */}
         <p className="meta-label mb-5">{profile.currentPosition} &middot; Galgotias College, Greater Noida</p>
 
@@ -43,8 +43,11 @@ export function Hero() {
           </Link>
 
           <a
-            href="mailto:paladhiviraj@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=paladhiviraj@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border border-border text-foreground rounded-md hover:border-foreground transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Email Adhiviraj via Gmail (opens in new tab)"
           >
             Email me
           </a>

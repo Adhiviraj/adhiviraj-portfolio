@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function DesktopNav() {
@@ -34,8 +33,9 @@ export function DesktopNav() {
         ))}
       </nav>
 
-      <a
-        href="mailto:paladhiviraj@gmail.com"
+      {/* "Get in touch" navigates to /contact — semantic Next.js Link, no JS required */}
+      <Link
+        href="/contact"
         className={cn(
           "text-sm font-medium",
           "px-3 py-2.5 border border-foreground rounded-md",
@@ -43,10 +43,10 @@ export function DesktopNav() {
           "transition-colors duration-150",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         )}
-        aria-label="Email Adhiviraj Pal"
+        aria-current={pathname === "/contact" ? "page" : undefined}
       >
         Get in touch
-      </a>
+      </Link>
     </div>
   );
 }
